@@ -1,12 +1,19 @@
 <div class="home">
   <h1>Welcome to the Github Profiles project</h1>
 
-  <p>Here you can see what your friends your other devs are doing in Github</p>
+  <p>Here you can see what your friends and other devs are doing in Github</p>
 
   <mat-form-field required class="form-field" appearance="outline">
     <mat-label>Username</mat-label>
-    <input matInput placeholder="Insert username here" />
+    <input
+      matInput
+      placeholder="Insert username here"
+      [(ngModel)]="username"
+      (keyup)="onKeyPress($event)"
+    />
   </mat-form-field>
 
-  <button mat-raised-button color="primary">Go</button>
+  <button mat-raised-button color="primary" (click)="getUser()">
+    Go
+  </button>
 </div>
