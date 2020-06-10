@@ -10,10 +10,9 @@ import { SharedUserService } from "src/app/services/shared-user.service";
 export class DashboardComponent implements OnInit {
   user: User;
 
-  constructor(private sharedUser: SharedUserService) {}
-
-  ngOnInit(): void {
+  constructor(private sharedUser: SharedUserService) {
     this.user = this.sharedUser.user;
-    console.log(this.user);
   }
+
+  ngOnInit(): void {}
 }

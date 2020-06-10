@@ -22,10 +22,8 @@ export class HomeComponent implements OnInit {
   getUser() {
     this.userService.findUser(this.username).subscribe((user) => {
       this.sharedUser.user = user;
-      console.log(user);
+      return this.route.navigate([`dashboard/${this.username}`]);
     });
-
-    return this.route.navigate([`dashboard/${this.username}`]);
   }
 
   onKeyPress(event: KeyboardEvent) {

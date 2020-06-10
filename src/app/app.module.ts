@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DashboardComponent],
@@ -26,6 +27,7 @@ import { MatButtonModule } from "@angular/material/button";
     MatButtonModule,
     FormsModule,
     HttpClientModule,
+    MatCardModule,
   ],
   providers: [UserService, SharedUserService],
   bootstrap: [AppComponent],
