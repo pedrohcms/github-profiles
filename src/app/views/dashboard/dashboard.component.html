@@ -1,21 +1,39 @@
 <div class="dashboard">
-  <section class="profile">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>User Profile</mat-card-title>
-        <mat-card-subtitle>{{ user.name }}</mat-card-subtitle>
-        <img mat-card-avatar src="{{ user.avatar_url }}" />
-      </mat-card-header>
+  <section class="header">
+    <img src="{{ user.avatar_url }}" alt="{{ user.login }}" />
 
-      <mat-card-title-group>
-        <mat-card-title>User Info</mat-card-title>
-        <mat-card-subtitle> Username: {{ user.login }} </mat-card-subtitle>
-        <mat-card-subtitle> E-mail: {{ user.email }} </mat-card-subtitle>
-        <mat-card-subtitle> Bio: {{ user.bio }} </mat-card-subtitle>
-        <mat-card-subtitle>
-          This user has joined Github in {{ user.created_at }}
-        </mat-card-subtitle>
-      </mat-card-title-group>
-    </mat-card>
+    <div class="user-profile">
+      <h2>User Profile</h2>
+
+      <p>Name: {{ user.name }}</p>
+      <p>Username: {{ user.login }}</p>
+
+      <p *ngIf="user.company !== null; else companyElseBlock">
+        Company: {{ user.company }}
+      </p>
+      <ng-template #companyElseBlock>
+        <p>Company: The user has not registered a company</p>
+      </ng-template>
+
+      <p *ngIf="user.bio !== null; else bioElseBlock">Bio: {{ user.bio }}</p>
+      <ng-template #bioElseBlock>
+        <p>Bio: The user does not have a bio</p>
+      </ng-template>
+
+      <p *ngIf="user.email !== null; else emailElseBlock">
+        Email: {{ user.email }}
+      </p>
+      <ng-template #emailElseBlock>
+        <p>Email: The user does not have a public email</p>
+      </ng-template>
+
+      <p>Link: {{ user.html_url }}</p>
+      <p>Date of creation: {{ user.created_at | date: "longDate" }}</p>
+    </div>
+    <a routerLink="" class="log-out">
+      <i class="material-icons">
+        power_settings_new
+      </i>
+    </a>
   </section>
 </div>
