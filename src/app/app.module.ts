@@ -19,6 +19,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatTableModule } from "@angular/material/table";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DashboardComponent],
@@ -35,6 +36,7 @@ import { MatTableModule } from "@angular/material/table";
     MatIconModule,
     MatDividerModule,
     MatTableModule,
+    MatSnackBarModule,
   ],
   providers: [UserService, SharedUserService, RepoService],
   bootstrap: [AppComponent],

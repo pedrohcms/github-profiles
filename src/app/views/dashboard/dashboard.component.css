@@ -41,3 +41,11 @@ a {
 .repo-table {
   width: 100%;
 }
+
+th {
+  font-size: 16px;
+}
+
+img {
+  padding-top: 20px;
+}

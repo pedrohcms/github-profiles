@@ -14,6 +14,8 @@ export class SharedUserService {
     login: "",
     avatar_url: "",
     html_url: "",
+    public_repos: 0,
+    public_gists: 0,
     created_at: "",
   });
 

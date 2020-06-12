@@ -30,6 +30,11 @@
       <a href="{{ user.html_url }}" class="github-link">
         <p>Link: {{ user.html_url }}</p>
       </a>
+
+      <p>Number of public repositories: {{ user.public_repos }}</p>
+
+      <p>Number of public gists: {{ user.public_gists }}</p>
+
       <p>Date of creation: {{ user.created_at | date: "longDate" }}</p>
     </div>
     <a routerLink="" class="log-out">
