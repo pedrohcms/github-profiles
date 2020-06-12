@@ -27,7 +27,9 @@
         <p>Email: The user does not have a public email</p>
       </ng-template>
 
-      <p>Link: {{ user.html_url }}</p>
+      <a href="{{ user.html_url }}" class="github-link">
+        <p>Link: {{ user.html_url }}</p>
+      </a>
       <p>Date of creation: {{ user.created_at | date: "longDate" }}</p>
     </div>
     <a routerLink="" class="log-out">
@@ -35,5 +37,42 @@
         power_settings_new
       </i>
     </a>
+  </section>
+  <mat-divider class="divider" [inset]="true"></mat-divider>
+  <section class="content">
+    <table mat-table [dataSource]="repo" class="repo-table">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let repo">{{ repo.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="html_url">
+        <th mat-header-cell *matHeaderCellDef>Link</th>
+        <td mat-cell *matCellDef="let repo">
+          <a href="{{ repo.html_url }}">{{ repo.html_url }}</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let repo">{{ repo.description }}</td>
+        <ng-template #descriptionElseBlock>
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let repo">
+            Repository does not have a description
+          </td>
+        </ng-template>
+      </ng-container>
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef>Created At</th>
+        <td mat-cell *matCellDef="let repo">
+          {{ repo.created_at | date: "longDate" }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
   </section>
 </div>

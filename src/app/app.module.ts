@@ -9,6 +9,7 @@ import { HomeComponent } from "./views/home/home.component";
 import { DashboardComponent } from "./views/dashboard/dashboard.component";
 import { UserService } from "./services/user.service";
 import { SharedUserService } from "./services/shared-user.service";
+import { RepoService } from "./services/repo.service";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatInputModule } from "@angular/material/input";
@@ -16,6 +17,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, DashboardComponent],
@@ -30,8 +33,10 @@ import { MatIconModule } from "@angular/material/icon";
     HttpClientModule,
     MatCardModule,
     MatIconModule,
+    MatDividerModule,
+    MatTableModule,
   ],
-  providers: [UserService, SharedUserService],
+  providers: [UserService, SharedUserService, RepoService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
